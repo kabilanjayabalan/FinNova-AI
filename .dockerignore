@@ -1,0 +1,18 @@
+# Common ignores
+.git
+.github
+.idea
+.vscode
+.DS_Store
+
+# Docker
+docker-compose.yml
+.dockerignore
+Dockerfile
+
+# Build artifacts
+backend/target/
+frontend/dist/
+frontend/node_modules/
+ai-service/venv/
+ai-service/__pycache__/
