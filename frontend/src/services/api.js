@@ -6,7 +6,7 @@ import axios from 'axios';
 // News comes from Google News RSS (no API key needed).
 
 const api = axios.create({
-  baseURL: 'http://localhost:8080/api',
+  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:8080/api',
 });
 
 api.interceptors.request.use(
@@ -35,7 +35,7 @@ api.interceptors.request.use(
 // AI narrative → Google Gemini (optional — falls back gracefully if no key).
 
 export const aiApi = axios.create({
-  baseURL: 'http://localhost:8002',
+  baseURL: import.meta.env.VITE_AI_API_URL || 'http://localhost:8001',
 });
 
 aiApi.interceptors.request.use(
