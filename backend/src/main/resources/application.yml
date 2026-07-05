@@ -1,0 +1,41 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: investment-research-backend
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/investment_db
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+app:
+  jwt:
+    secret: ${JWT_SECRET:9A5F8E2B4C1D7A6F3E8B5C2D1A9F4E7B3C6D8A2F1E5B9C4D7A0F3E6B2C8D5A1F}
+    expiration-ms: 3600000 # 1 hour
+    refresh-expiration-ms: 604800000 # 7 days
+
+ai:
+  service:
+    base-url: ${AI_SERVICE_URL:http://localhost:8002}
+
+logging:
+  level:
+    com.investmentresearch: DEBUG
+    org.springframework.security: INFO
