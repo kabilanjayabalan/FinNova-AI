@@ -12,15 +12,17 @@ The system follows a **microservice-oriented architecture**, combining a React f
 
 ## Features
 
-###User authentication with JWT
-###Portfolio and holdings management
-###Stock search and analysis
-###Watchlist management
-###AI-powered financial analysis
-###AI chat assistant
-###Risk and financial ratio analysis
-###Interactive charts and reports
-###Real-time notifications using WebSocket
+* User authentication with JWT
+* Portfolio and holdings management
+* Stock search and analysis
+* Watchlist management
+* AI-powered financial analysis
+* AI chat assistant
+* Risk and financial ratio analysis
+* Interactive charts and reports
+* Real-time notifications using WebSocket
+
+---
 
 # System Architecture
 
