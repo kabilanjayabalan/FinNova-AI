@@ -12,91 +12,15 @@ The system follows a **microservice-oriented architecture**, combining a React f
 
 ## Features
 
-### Authentication & Security
-
-* User registration and login
-* JWT-based authentication
-* Spring Security integration
-* Role-based access control
-* Protected frontend routes
-* Password recovery workflow
-* Secure API communication
-
-### Portfolio Management
-
-* Create and manage investment portfolios
-* Add and update stock holdings
-* Track transactions
-* Calculate portfolio-related metrics
-* View portfolio summaries
-* Monitor individual holdings
-
-### Stock Research
-
-* Search and analyze stocks
-* View financial information
-* Financial ratio analysis
-* Stock-specific research
-* Market data integration
-* Interactive financial charts
-
-### AI-Powered Analysis
-
-FinNova-AI provides AI-powered capabilities for:
-
-* Stock analysis
-* Portfolio analysis
-* Risk analysis
-* Investment research
-* Financial question answering
-* AI-generated explanations
-* Sentiment-oriented analysis
-* Recommendation generation
-
-The AI service uses specialized prompts and financial data to generate contextual responses.
-
-### Watchlist
-
-* Add stocks to a personal watchlist
-* Remove stocks from the watchlist
-* Track selected companies
-* Access stock research directly from the watchlist
-
-### AI Chat Assistant
-
-Users can interact with an AI assistant to ask financial and investment-related questions.
-
-The chat system is designed to combine application data, financial information, and AI models to provide contextual responses.
-
-### Dashboard
-
-The dashboard provides an overview of:
-
-* Portfolio summary
-* Market information
-* Investment metrics
-* Watchlist information
-* Financial charts
-* Recent activity
-
-### Reports & Visualization
-
-The application includes interactive visualizations using React chart components.
-
-Supported visualizations include:
-
-* Line charts
-* Bar charts
-* Pie charts
-* Candlestick charts
-
-Users can also generate financial reports from the application.
-
-### Real-Time Notifications
-
-The application includes WebSocket-based notification support for real-time application events.
-
----
+###User authentication with JWT
+###Portfolio and holdings management
+###Stock search and analysis
+###Watchlist management
+###AI-powered financial analysis
+###AI chat assistant
+###Risk and financial ratio analysis
+###Interactive charts and reports
+###Real-time notifications using WebSocket
 
 # System Architecture
 
@@ -147,6 +71,35 @@ The application includes WebSocket-based notification support for real-time appl
                               │ Google Gemini│       │    Groq      │
                               │     API      │       │     API      │
                               └──────────────┘       └──────────────┘
+```
+
+---
+# Architecture Flow
+
+```text
+User
+ ↓
+React Frontend
+ ↓
+Spring Boot REST API
+ ↓
+Business Service Layer
+ ↓
+ ┌───────────────┬─────────────────┐
+ ↓               ↓                 ↓
+PostgreSQL      Redis          FastAPI AI
+                                      ↓
+                           Financial Data / News
+                                      ↓
+                              AI Analysis Engine
+                                      ↓
+                             Gemini / Groq
+                                      ↓
+                              AI Response
+                                      ↓
+                              Spring Boot
+                                      ↓
+                              React Frontend
 ```
 
 ---
@@ -841,57 +794,6 @@ Located under:
 ```
 
 This enables automated validation and deployment workflows when changes are pushed to the repository.
-
----
-
-# Key Design Decisions
-
-## Why Spring Boot?
-
-Spring Boot provides a strong ecosystem for:
-
-* REST API development
-* Security
-* JPA/Hibernate
-* Database integration
-* WebSockets
-* Validation
-* Production monitoring
-
-It is used as the core business/application backend.
-
-## Why FastAPI?
-
-AI and financial-data processing are implemented in Python because Python provides a strong ecosystem for:
-
-* AI/LLM integration
-* Data analysis
-* Financial-data processing
-* Machine-learning libraries
-* Rapid API development
-
-Therefore, the project separates the Java business layer from the Python AI/data-processing layer.
-
-## Why PostgreSQL?
-
-PostgreSQL is used as the primary relational database because the application contains structured relationships between:
-
-```text
-Users
-Portfolios
-Holdings
-Transactions
-Watchlists
-AI Queries
-```
-
-These relationships benefit from relational constraints, transactions, and SQL querying.
-
-## Why Redis?
-
-Redis is included for fast in-memory data operations and caching.
-
-It can reduce the need to repeatedly retrieve frequently accessed information from the primary database or external services.
 
 ---
 
